@@ -1,21 +1,45 @@
 常数 = [1, 2, 3]
 
 
-def test1(a):
-    b = []
-    b = 常数.append(a)
-    return (b)
+def squareroot(n):
+    # 著名的牛顿迭代法
+    root = n / 2
+    for i in range(20):
+        root = (root + n / root) / 2
+    return root
 
 
-print(test1(5))
-print(常数)
+#
+#
+# class First:
+#     """
+#     first time forever
+#     """
+#
+#     def __init__(self):
+#         pass
+#
+#     @property
+#     def test1(self):
+#         b = []
+#         b = 常数.append(self)
+#         return b
 
 
-def sum(*agrs):
-    a = 0
-    for agr in agrs:
-        a += agr
-    print(a)
+# if __name__ == "__mian__":
+running: bool = True
 
 
-sum(1,2,3,4)
+class FuckError:
+    pass
+
+
+while running:
+    try:
+        a = squareroot(float(input("算数平方根:")))
+    except ZeroDivisionError:
+        running = False
+    # bug:除去负数
+
+    else:
+        print(a)
