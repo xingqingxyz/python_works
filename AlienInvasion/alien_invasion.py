@@ -55,12 +55,18 @@ class AlienInvasion:
             bullet.draw_bullet()
         pygame.display.flip()
 
+    def _update_bullets(self):
+        self.bullets.update()
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        
     def run_game(self):
         '''游戏主循环'''
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
 
 if __name__ == '__main__':
